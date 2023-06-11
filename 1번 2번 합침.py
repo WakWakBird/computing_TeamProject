@@ -25,16 +25,16 @@ menuArchive = {
     # 다른 레시피도 추가할 수 있습니다.
 }
 
-def add_recipe(recipe_name, ingredients, steps):
-    menuArchive[recipe_name] = {
+def addRecipe(recipeName, ingredients, steps):
+    menuArchive[recipeName] = {
         "재료": ingredients,
         "순서": steps
     }
 
-def print_recipe(recipe_name):
-    if recipe_name in menuArchive:
-        recipe = menuArchive[recipe_name]
-        print(f"{recipe_name} 레시피")
+def printRecipe(recipeName):
+    if recipeName in menuArchive:
+        recipe = menuArchive[recipeName]
+        print(f"{recipeName} 레시피")
         print("재료:")
         for ingredient in recipe["재료"]:
             print("- " + ingredient)
@@ -47,16 +47,18 @@ def print_recipe(recipe_name):
 while True:
     command = input("1. 레시피 보기 | 2. 레시피 추가 | 3. 종료\n원하는 작업을 선택하세요: ")
     if command == "1":
-        recipe_name = input("레시피 이름을 입력하세요: ")
-        print_recipe(recipe_name)
+        recipeName = input("레시피 이름을 입력하세요: ")
+        printRecipe(recipeName)
     elif command == "2":
-        recipe_name = input("레시피 이름을 입력하세요: ")
+        recipeName = input("레시피 이름을 입력하세요: ")
         ingredients = input("사용되는 재료를 입력하세요 (쉼표로 구분): ").split(",")
         steps = input("레시피 순서를 입력하세요 (한 줄씩): ").split(",")
-        add_recipe(recipe_name, ingredients, steps)
+        addRecipe(recipeName, ingredients, steps)
         print("레시피가 추가되었습니다.")
     elif command == "3":
         print("프로그램을 종료합니다.")
         break
     else:
         print("올바른 명령을 입력하세요.")
+
+
